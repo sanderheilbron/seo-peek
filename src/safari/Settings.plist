@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+  <dict>
+    <key>Title</key>
+    <string>Show results</string>
+    <key>Type</key>
+    <string>Group</string>
+  </dict>
+  <dict>
+    <key>DefaultValue</key>
+    <false/>
+    <key>Key</key>
+    <string>metaNewsKeywordsSetting</string>
+    <key>Title</key>
+    <string>Meta News Keywords</string>
+    <key>Titles</key>
+    <array>
+      <string>Enable</string>
+      <string>Disable</string>
+    </array>
+    <key>Type</key>
+    <string>RadioButtons</string>
+    <key>Values</key>
+    <array>
+      <true/>
+      <false/>
+    </array>
+  </dict>
+  <dict>
+    <key>DefaultValue</key>
+    <false/>
+    <key>Key</key>
+    <string>paginationSetting</string>
+    <key>Title</key>
+    <string>Pagination directives</string>
+    <key>Titles</key>
+    <array>
+      <string>Enable</string>
+      <string>Disable</string>
+    </array>
+    <key>Type</key>
+    <string>RadioButtons</string>
+    <key>Values</key>
+    <array>
+      <true/>
+      <false/>
+    </array>
+  </dict>
+  <dict>
+    <key>DefaultValue</key>
+    <false/>
+    <key>Key</key>
+    <string>mobileSetting</string>
+    <key>Title</key>
+    <string>Mobile directives</string>
+    <key>Titles</key>
+    <array>
+      <string>Enable</string>
+      <string>Disable</string>
+    </array>
+    <key>Type</key>
+    <string>RadioButtons</string>
+    <key>Values</key>
+    <array>
+      <true/>
+      <false/>
+    </array>
+  </dict>
+  <dict>
+    <key>DefaultValue</key>
+    <false/>
+    <key>Key</key>
+    <string>internationalSetting</string>
+    <key>Title</key>
+    <string>International directives</string>
+    <key>Titles</key>
+    <array>
+      <string>Enable</string>
+      <string>Disable</string>
+    </array>
+    <key>Type</key>
+    <string>RadioButtons</string>
+    <key>Values</key>
+    <array>
+      <true/>
+      <false/>
+    </array>
+  </dict>
+</array>
+</plist>

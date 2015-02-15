@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Options for SEO Page Analyzer extension</title>
+    <link rel="stylesheet" href="css/options.css" />
+    <script src="js/options.js"></script>
+  </head>
+  <body>
+    <h1>Options for SEO Peek extension</h1>
+    <hr>
+    <h3>Show results</h3>
+    <div class="properties">
+      <p>
+        <label>Meta news keywords:</label>
+        <select id="meta_news_keywords_values">
+          <option value="enable">Enable</option>
+          <option value="disable">Disable</option>
+        </select>
+      </p>
+      <small>Detects a Google-specific metatag to help determine how to best classify the content of the page.</small>
+      <p>
+        <label>Pagination directives:</label>
+        <select id="pagination_directives_values">
+          <option value="enable">Enable</option>
+          <option value="disable">Disable</option>
+        </select>
+      </p>
+      <small>Detects the HTML link elements rel="next" and rel="prev" to indicate the relationship between component URLs in a paginated series.</small>
+      <p>
+        <label>Mobile directives:</label>
+        <select id="mobile_directives_values">
+          <option value="enable">Enable</option>
+          <option value="disable">Disable</option>
+        </select>
+      </p>
+      <small>Detects the Vary HTTP header which helps Googlebot discover mobile-optimized content faster, and the rel-alternate-media annotation which helps Google's algorithms to understand the configuration of a mobile site.</small>
+      <p>
+        <label>International directives:</label>
+        <select id="international_directives_values">
+          <option value="enable">Enable</option>
+          <option value="disable">Disable</option>
+        </select>
+      </p>
+      <small>Detects the rel-alternate-hreflang annotation which helps Google to serve the correct language or regional URL in search results.</small>
+    </div>
+    <p class="actions">
+      <button class="save">Save</button>
+      <button class="restore">Restore default</button>
+    </p>
+    <span id="status"><span>
+  </body>
+</html>
