@@ -39,8 +39,7 @@ Have a bug? Please create an [issue][3] here on GitHub!
 Want to contribute? Great! Just fork the project, make your changes and open a [pull request][4].
 
 ## Changelog
-### 1.0 (February 15, 2015):
- * Initial release.
+See [changelog][6] for details.
 
 ## License
 Licensed under the BSD license.
@@ -78,3 +77,4 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 [3]: https://github.com/sanderheilbron/seo-peek/issues
 [4]: https://github.com/sanderheilbron/seo-peek/pulls
 [5]: http://www.sanderheilbron.nl
+[6]: https://github.com/sanderheilbron/seo-peek/blob/master/CHANGELOG.md
