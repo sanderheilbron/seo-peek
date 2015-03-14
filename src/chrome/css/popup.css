@@ -5,7 +5,7 @@ html, body {
   padding-bottom: 4px;
   -webkit-font-smoothing: antialiased;
   background-color: #f1f1f1;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 body {
