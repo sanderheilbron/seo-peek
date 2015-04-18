@@ -1,7 +1,8 @@
 /**
  * Called when a message is passed. We assume that the content script wants to show the page action.
  */
-var pageTitle = [],
+var pageSpeed = [],
+    pageTitle = [],
     pageTitleCharacters = [],
     pageTitleOccurrences = [],
     metaDescription = [],
@@ -28,6 +29,7 @@ var pageTitle = [],
  */
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
+    pageSpeed[sender.tab.id] = request.pageSpeed;
     pageTitle[sender.tab.id] = request.pageTitle;
     pageTitleCharacters[sender.tab.id] = request.pageTitleCharacters;
     pageTitleOccurrences[sender.tab.id] = request.pageTitleOccurrences;
@@ -51,6 +53,10 @@ chrome.runtime.onMessage.addListener(
     sendResponse({});
   });
 
+
+function getPageSpeed(tabId) {
+    return pageSpeed[tabId];
+}
 
 function getPageTitle(tabId) {
   return pageTitle[tabId];

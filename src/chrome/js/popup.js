@@ -24,7 +24,19 @@ var opts = {
 chrome.tabs.query({active: true,lastFocusedWindow: true}, function(tabs) {
   // and use that tab to fill in url and all page information
   var tab = tabs[0],
-      tabURL = tab.url;
+      tabURL = tab.url,
+      parser = document.createElement('a');
+  parser.href = tabURL;
+
+  var host = parser.protocol + parser.host;
+
+  // Page Speed
+  var t = page.getPageSpeed(tab.id);
+  var start = t.redirectStart == 0 ? t.fetchStart : t.redirectStart;
+  var responseTime = t.responseStart - start;
+  var pageSpeedElem = document.getElementById("pageTiming");
+
+  pageSpeedElem.innerText = responseTime + "ms";
 
   // Page Title
   var pageTitleElem = document.getElementById("page-title"),
@@ -145,7 +157,7 @@ chrome.tabs.query({active: true,lastFocusedWindow: true}, function(tabs) {
   } else if (nextLinkTag === na || nextLinkTag === nc) {
     nextElem.innerHTML = nextLinkTag;
   } else {
-    nextElem.innerHTML = '<a href="' + nextLinkTag + '" target="_blank">' + nextLinkTag + '</a>';
+    nextElem.innerHTML = '<a href="' + host + nextLinkTag + '" target="_blank">' + nextLinkTag + '</a>';
 
     if (nextLinkTag === tabURL) {
       var spanNextLinkTagInfo = document.getElementById("next-link-tag-info");
@@ -164,7 +176,7 @@ chrome.tabs.query({active: true,lastFocusedWindow: true}, function(tabs) {
   } else if (prevLinkTag === na || prevLinkTag === nc) {
     prevElem.innerHTML = prevLinkTag;
   } else {
-    prevElem.innerHTML = '<a href="' + prevLinkTag + '" target="_blank">' + prevLinkTag + '</a>';
+    prevElem.innerHTML = '<a href="' + host + prevLinkTag + '" target="_blank">' + prevLinkTag + '</a>';
 
     if (prevLinkTag === tabURL) {
       var spanPrevLinkTagInfo = document.getElementById("prev-link-tag-info");

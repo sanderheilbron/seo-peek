@@ -123,6 +123,11 @@ function getRelAlternateHrefLangTags() {
   }
 }
 
+function getPageSpeed() {
+  return performance.timing;
+}
+
+var pageSpeed                   = getPageSpeed();
 var pageTitle                   = [],
     getPageTitle                = (typeof getElement('title') !== "undefined") ? getElement('title').replace(/\s+/g, ' ') : na;
 pageTitle.push(getPageTitle);
@@ -159,4 +164,4 @@ var relAlternateMediaLinkTag    = getRelAlternateMediaLinkTag('alternate');
 var relAlternateHrefLangLinkTag = getRelAlternateHrefLangTags();
 
 // Sending a request from the content script
-chrome.runtime.sendMessage({ pageTitle: pageTitle, pageTitleCharacters: pageTitleCharacters, pageTitleOccurrences: pageTitleOccurrences, metaDescription: metaDescription, metaDescriptionCharacters: metaDescriptionCharacters, metaDescriptionOccurrences: metaDescriptionOccurrences, metaKeywords:metaKeywords, metaKeywordsOccurrences: metaKeywordsOccurrences, metaNewsKeywords: metaNewsKeywords, metaNewsKeywordsOccurrences: metaNewsKeywordsOccurrences, h1Heading: h1Heading, h1HeadingOccurrences: h1HeadingOccurrences, metaRobots: metaRobots, metaRobotsOccurrences: metaRobotsOccurrences, canonicalLinkTag: canonicalLinkTag, canonicalLinkTagOccurrences: canonicalLinkTagOccurrences, prevLinkTag: prevLinkTag, nextLinkTag: nextLinkTag, relAlternateMediaLinkTag: relAlternateMediaLinkTag, relAlternateHrefLangLinkTag: relAlternateHrefLangLinkTag }, function(response) {});
+chrome.runtime.sendMessage({ pageSpeed: pageSpeed, pageTitle: pageTitle, pageTitleCharacters: pageTitleCharacters, pageTitleOccurrences: pageTitleOccurrences, metaDescription: metaDescription, metaDescriptionCharacters: metaDescriptionCharacters, metaDescriptionOccurrences: metaDescriptionOccurrences, metaKeywords:metaKeywords, metaKeywordsOccurrences: metaKeywordsOccurrences, metaNewsKeywords: metaNewsKeywords, metaNewsKeywordsOccurrences: metaNewsKeywordsOccurrences, h1Heading: h1Heading, h1HeadingOccurrences: h1HeadingOccurrences, metaRobots: metaRobots, metaRobotsOccurrences: metaRobotsOccurrences, canonicalLinkTag: canonicalLinkTag, canonicalLinkTagOccurrences: canonicalLinkTagOccurrences, prevLinkTag: prevLinkTag, nextLinkTag: nextLinkTag, relAlternateMediaLinkTag: relAlternateMediaLinkTag, relAlternateHrefLangLinkTag: relAlternateHrefLangLinkTag }, function(response) {});
