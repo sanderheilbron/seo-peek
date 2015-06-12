@@ -123,11 +123,6 @@ function getRelAlternateHrefLangTags() {
   }
 }
 
-function getPageSpeed() {
-  return performance.timing;
-}
-
-var pageSpeed                   = getPageSpeed();
 var pageTitle                   = [],
     getPageTitle                = (typeof getElement('title') !== "undefined") ? getElement('title').replace(/\s+/g, ' ') : na;
 pageTitle.push(getPageTitle);

@@ -30,12 +30,6 @@ chrome.tabs.query({active: true,lastFocusedWindow: true}, function(tabs) {
 
   var host = parser.protocol + parser.host;
 
-  // Page Speed
-  var t = page.getPageSpeed(tab.id);
-  var start = t.redirectStart == 0 ? t.fetchStart : t.redirectStart;
-  var responseTime = t.responseStart - start;
-  var pageSpeedElem = document.getElementById("pageTiming");
-
   pageSpeedElem.innerText = responseTime + "ms";
 
   // Page Title
