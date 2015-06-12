@@ -30,8 +30,6 @@ chrome.tabs.query({active: true,lastFocusedWindow: true}, function(tabs) {
 
   var host = parser.protocol + parser.host;
 
-  pageSpeedElem.innerText = responseTime + "ms";
-
   // Page Title
   var pageTitleElem = document.getElementById("page-title"),
       titleElem = document.createElement("p");
