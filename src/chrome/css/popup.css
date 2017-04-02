@@ -1,7 +1,7 @@
 html, body {
-  padding-top: 0px;
+  padding-top: 0;
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
   padding-bottom: 4px;
   -webkit-font-smoothing: antialiased;
   background-color: #f1f1f1;
@@ -13,7 +13,7 @@ body {
   padding-right: 8px;
   -webkit-user-select: none;
   min-width: 520px;
-  min-height: 400px;
+  min-height: 600px;
 }
 
 #reload-notification {
@@ -28,7 +28,15 @@ body {
   cursor: pointer;
 }
 
-#content, #directives, #mobile-directives, #international-directives, #pagination-directives, #canonicalization-directives, #meta-robots-directives, #meta-tags, #h1-headings {
+#content,
+#directives,
+#mobile-directives,
+#international-directives,
+#pagination-directives,
+#canonicalization-directives,
+#meta-robots-directives,
+#meta-tags,
+#h1-headings {
   margin: 0 6px 10px;
   list-style-type:none;
 }
@@ -48,7 +56,7 @@ h1 a {
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: #333;
   text-align: center;
@@ -62,13 +70,13 @@ h3 {
   color: #333;
   text-align: left;
   text-transform: uppercase;
-  padding: 2px 10px 0px 23px;
+  padding: 6px 10px 0px 23px;
 }
 
 .rounded-box {
   border-radius: 3px;
   padding: 0px;
-  background-color: #fff;
+  background-color: rgba(253, 253, 253, .6);
   margin-bottom: 14px;
   min-height: 24px;
 }
@@ -81,13 +89,13 @@ p {
 }
 
 p a:link {
-  color: rgb(0, 136, 204);
+  color: rgb(0, 122, 255);
   text-decoration: none;
   outline: none;
 }
 
 p a:hover, p a:active, p a:visited {
-  color: rgb(0, 136, 204);
+  color: rgb(0, 122, 255);
   text-decoration: underline;
 }
 
@@ -112,14 +120,14 @@ p a:hover, p a:active, p a:visited {
 }
 
 li.name {
-  width: 200px;
+  width: 190px;
   float: left;
   padding-top: 10px;
   padding-left: 10px;
 }
 
 li.name p {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   color: #000;
   line-height: 20px;
@@ -143,7 +151,7 @@ li.content {
 }
 
 li.content p {
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
   color: #4d4d4d;
   margin: 4px 6px 4px 0px;
@@ -152,13 +160,35 @@ li.content p {
   -webkit-user-select: text;
 }
 
-li.content p::selection, li.content p a::selection {
+li.content p::selection,
+li.content p a::selection {
   background-color: #d5eafc;
 }
 
-#international-directives hr {
+.missing-value {
+  color: #777;
+}
+
+#international-directives hr, #canonicalization-directives hr {
   color: #e4e4e4;
   background-color: #e4e4e4;
   height: 1px;
   border: none;
+}
+
+.hreflang {
+  font-size: 10px;
+  font-weight: normal;
+  color: #4d4d4d;
+  text-transform: uppercase;
+}
+
+#info {
+  -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+  animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }

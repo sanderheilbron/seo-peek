@@ -1,15 +1,15 @@
-var na = 'Not available.',
-    nc = 'Content is missing.';
+var notAvailable = 'Not available',
+    contentMissing = 'Content is missing';
 
 function getLinkElement(rel) {
   var links = document.getElementsByTagName('link'),
-  found = na;
+  found = notAvailable;
 
   for (var i = 0, l; l = links[i]; i++) {
     if (l.getAttribute('rel') === rel) {
       found = l.getAttribute('href');
       if (!found) {
-        return nc;
+        return contentMissing;
         } else {
         return found;
       }
@@ -24,10 +24,10 @@ function getMetaElement(name) {
     if (metaTags[i].name.toLowerCase() === name && metaTags[i].getAttribute('content')) {
       return metaTags[i].getAttribute('content');
     } else if (metaTags[i].name.toLowerCase() === name) {
-      return nc;
+      return contentMissing;
     }
   }
-  return na;
+  return notAvailable;
 }
 
 function getMetaElementOccurrences(name) {
@@ -45,7 +45,7 @@ function getElement(name){
   var elements = document.getElementsByTagName(name);
   for ( var i = 0,eLen = elements.length; i < eLen; i++ ) {
     if (elements[0].innerText === '') {
-      return nc;
+      return contentMissing;
     } else {
       return elements[0].innerText;
     }
@@ -61,8 +61,17 @@ function getElementOccurrences(name){
   return matched;
 }
 
+function getHeadElementOccurrences(name) {
+  var elements = document.head.getElementsByTagName(name),
+      matched = 0;
+  for (var i = 0, eLen = elements.length; i < eLen; i++) {
+    matched++;
+  }
+  return matched;
+}
+
 function getCharacters(element) {
-  if (element === na || element === nc) {
+  if (element === notAvailable || element === contentMissing) {
     return;
   } else {
     return element.length + ' characters';
@@ -83,13 +92,13 @@ function getLinkElementOccurrences(rel) {
 // rel-alternate-media annotation
 function getRelAlternateMediaLinkTag(rel) {
   var links = document.getElementsByTagName('link'),
-      found = na;
+      found = notAvailable;
   for (var i = 0, l; l = links[i]; i++) {
   if (l.getAttribute('rel') === rel && l.getAttribute('media') !== null) {
     if (l.getAttribute('rel') === rel && l.getAttribute('media').match(/^only screen and \(max-width:/)) {
       found = l.getAttribute('href');
       if (!found) {
-        return nc;
+        return contentMissing;
       } else {
         return found;
       }
@@ -99,35 +108,49 @@ function getRelAlternateMediaLinkTag(rel) {
   return found;
 }
 
+// Check for protocl
+function hasProtocol(url) {
+  return (/^(?:f|ht)tps?\:\/\//.test(url));
+}
+
 // Array of rel-alternate-hreflang annotation
 function getRelAlternateHrefLangTags() {
   var links = document.getElementsByTagName('link'),
-      results = [];
-  for(var i = 0, l=links.length; i<l; i++) {
+      hrefLangResults = [],
+      results = [],
+      value;
+  for(var i = 0, l = links.length; i < l; i++) {
     if (links[i].getAttribute('rel') === 'alternate' && links[i].getAttribute('hreflang') !== null) {
-      var hrefAttribute = links[i].getAttribute('href') || nc;
-      var hrefLangAttribute = links[i].getAttribute('hreflang') || nc;
-      results.push({
-        hreflang: hrefLangAttribute,
-        href: hrefAttribute
-      });
+      var hrefAttribute = links[i].getAttribute('href');
+      var hrefLangAttribute = links[i].getAttribute('hreflang');
+      if (hrefLangAttribute === '' || hrefAttribute === '') {
+        value = contentMissing;
+      } else if (hrefLangAttribute === null || hrefAttribute === null) {
+        value = contentMissing;
+      } else {
+        if (!hasProtocol(hrefAttribute)) {
+          value = "<span class='hreflang'>" + hrefLangAttribute + "</span><br>" + hrefAttribute;
+        } else {
+          value = "<span class='hreflang'>" + hrefLangAttribute + "</span><br><a href=" + hrefAttribute + " target=\"_blank\">" + hrefAttribute + "</a>";
+        }
+      }
+      hrefLangResults.push(value);
+      results = hrefLangResults.join("<br><hr>");
     }
-    results;
   }
-
-  // the array is defined and has at least one element
+  // The array is defined and has at least one element
   if (typeof results !== 'undefined' && results.length > 0) {
     return results;
   } else {
-    return na;
+    return notAvailable;
   }
 }
 
 var pageTitle                   = [],
-    getPageTitle                = (typeof getElement('title') !== "undefined") ? getElement('title').replace(/\s+/g, ' ') : na;
+    getPageTitle                = (typeof getElement('title') !== "undefined") ? getElement('title').replace(/\s+/g, ' ') : notAvailable;
 pageTitle.push(getPageTitle);
 
-var pageTitleOccurrences        = getElementOccurrences('title'),
+var pageTitleOccurrences        = getHeadElementOccurrences('title'),
     pageTitleCharacters         = getCharacters(getPageTitle);
 
 var metaDescription             = getMetaElement('description'),
@@ -141,7 +164,7 @@ var metaNewsKeywords            = getMetaElement('news_keywords'),
     metaNewsKeywordsOccurrences = getMetaElementOccurrences('news_keywords');
 
 var h1Heading                   = [],
-    getH1Heading                = (typeof getElement('h1') !== "undefined") ? getElement('h1').replace(/\s+/g, ' ') : na;
+    getH1Heading                = (typeof getElement('h1') !== "undefined") ? getElement('h1').replace(/\s+/g, ' ') : notAvailable;
 h1Heading.push(getH1Heading);
 var h1HeadingOccurrences        = getElementOccurrences('h1');
 
@@ -156,7 +179,32 @@ var nextLinkTag                 = getLinkElement('next');
 
 var relAlternateMediaLinkTag    = getRelAlternateMediaLinkTag('alternate');
 
+var ampHTMLLinkTag              = getLinkElement('amphtml');
+
 var relAlternateHrefLangLinkTag = getRelAlternateHrefLangTags();
 
 // Sending a request from the content script
-chrome.runtime.sendMessage({ pageTitle: pageTitle, pageTitleCharacters: pageTitleCharacters, pageTitleOccurrences: pageTitleOccurrences, metaDescription: metaDescription, metaDescriptionCharacters: metaDescriptionCharacters, metaDescriptionOccurrences: metaDescriptionOccurrences, metaKeywords:metaKeywords, metaKeywordsOccurrences: metaKeywordsOccurrences, metaNewsKeywords: metaNewsKeywords, metaNewsKeywordsOccurrences: metaNewsKeywordsOccurrences, h1Heading: h1Heading, h1HeadingOccurrences: h1HeadingOccurrences, metaRobots: metaRobots, metaRobotsOccurrences: metaRobotsOccurrences, canonicalLinkTag: canonicalLinkTag, canonicalLinkTagOccurrences: canonicalLinkTagOccurrences, prevLinkTag: prevLinkTag, nextLinkTag: nextLinkTag, relAlternateMediaLinkTag: relAlternateMediaLinkTag, relAlternateHrefLangLinkTag: relAlternateHrefLangLinkTag }, function(response) {});
+chrome.runtime.sendMessage({
+  pageTitle: pageTitle,
+  pageTitleCharacters: pageTitleCharacters,
+  pageTitleOccurrences: pageTitleOccurrences,
+  metaDescription: metaDescription,
+  metaDescriptionCharacters: metaDescriptionCharacters,
+  metaDescriptionOccurrences: metaDescriptionOccurrences,
+  metaKeywords:metaKeywords,
+  metaKeywordsOccurrences: metaKeywordsOccurrences,
+  metaNewsKeywords: metaNewsKeywords,
+  metaNewsKeywordsOccurrences: metaNewsKeywordsOccurrences,
+  h1Heading: h1Heading,
+  h1HeadingOccurrences: h1HeadingOccurrences,
+  metaRobots: metaRobots,
+  metaRobotsOccurrences: metaRobotsOccurrences,
+  canonicalLinkTag: canonicalLinkTag,
+  canonicalLinkTagOccurrences: canonicalLinkTagOccurrences,
+  prevLinkTag: prevLinkTag,
+  nextLinkTag: nextLinkTag,
+  relAlternateMediaLinkTag: relAlternateMediaLinkTag,
+  ampHTMLLinkTag: ampHTMLLinkTag,
+  relAlternateHrefLangLinkTag: relAlternateHrefLangLinkTag
+}, function(response) {
+});

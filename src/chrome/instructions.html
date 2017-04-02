@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Instructions &ndash; SEO Peek</title>
+    <link rel="stylesheet" href="css/normalize.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" media="screen" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="site-nav">
+            <ul class="site-nav-list">
+                <li class="nav-list-item active"><a class="nav-list-link" href="/instructions.html">Instructions</a></li>
+                <li class="nav-list-item"><a class="nav-list-link" href="upgrade.html">Release notes</a></li>
+                <li class="nav-list-item"><a class="nav-list-link" href="https://paypal.me/sanderheilbron/5" rel="noopener" target="_blank">Donate</a></li>
+            </ul>
+        </nav>
+        <header>
+            <div class="header__name">
+                <img class="header__logo" src="images/icon.svg" alt="SEO Peek">
+                <h1 class="header__title">SEO Peek</h1>
+            </div>
+
+            <h2 class="header__tagline">Just one click to get a quick peek into on-page SEO factors of the web page you visit in the browser.</h2>
+        </header>
+
+        <div class="instructions">
+            <h3 class="instructions__heading">Introduction</h3>
+            <div class="instructions__intro">
+                <h4 class="instructions__subheading">Document Object Model</h4>
+                <p class="instructions__text">SEO Peek is a Chrome extension that checks the Document Object Model (DOM) of a page, there is no need to view the HTML source (<a href="https://moz.com/blog/the-technical-seo-renaissance" target="_blank" rel="noopener" class="instructions__link" >View Source for SEO is dead</a>) or inspect
+                    the DOM in the elements tab of Chrome DevTools.</p>
+
+                <p class="instructions__text">SEO Peek checks the most relevant content elements and robot directives inside the DOM of both traditional server-side generated pages and client-side rendered pages like <a href="https://www.codeschool.com/beginners-guide-to-web-development/single-page-applications" target="_blank" rel="noopener" class="instructions__link">Single Page Applications</a> (SPA).</p>
+
+                <h4 class="instructions__subheading">Server response</h4>
+                <p class="instructions__text">Besides a check of meta tags, content and link elements the extension also sends a request to the server to check the HTTP Status and several HTTP Response Headers like the HTTP Canonical header, X-Robots-Tag header and Vary header.</p>
+
+                <p class="instructions__text">The HTTP status contains an additional remark when the server supports HTTP/2. The HTTP/2 protocol does not have a status message (i.e. OK, Not Found), and only contains a status code (i.e. 200, 404).</p>
+
+                <h4 class="instructions__subheading">Link elements and headers</h4>
+                <p class="instructions__text">For all link elements and link headers the extension checks if the URL of a link element or link header refers to the URL of the current page (self-referential).</p>
+
+                <p class="instructions__text">The HTTP status for the canonical URL is also being checked. When the response contains a redirect the extension detects the redirect and shows the response URL and its HTTP status.</p>
+            </div>
+
+            <h3 class="instructions__heading">Usage instructions</h3>
+            <h4 class="instructions__subheading">Windows &amp; MacOS</h4>
+            <ul class="instructions__list">
+                <li>Open a tab and visit a web page</li>
+                <li>Click the extension icon<sup>*</sup> in the browser toolbar to inspect the page</li>
+                <li>Chrome will open a popup screen which shows all page results</li>
+                <sup><sup>*</sup> instead of clicking the extension icon, it's possible to assign a shortcut</sup>
+            </ul>
+
+            <h3 class="instructions__heading">Settings</h3>
+            <h4 class="instructions__subheading">Extension options</h4>
+            <p>You can control the display settings of some of the elements or directives. Open the extension options in the Chrome Extensions settings.</p>
+            <img src="images/extension-options.png" width="415" height="522" alt="Extension Options">
+
+        </div>
+
+    </div>
+
+    <footer class="footer__container">
+        <div class="footer">
+            <p class="footer__item">Developed and maintained by <a href="https://twitter.com/sanderheilbron" target="_blank" rel="noopener">@sanderheilbron</a>. Licensed under the <a href="https://github.com/sanderheilbron/seo-peek/blob/master/LICENSE" target="_blank" rel="noopener">MIT License</a>.</p>
+            <p class="footer__item">Copyright &copy; 2017 <a href="https://www.sanderheilbron.nl" target="_blank" rel="noopener">Sander Heilbron</a>. Current version: 2.0.0</p>
+        </div>
+    </footer>
+
+    <a href="https://github.com/sanderheilbron/seo-peek" rel="noopener" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#188DFB; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+    <style>
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+
+        @keyframes octocat-wave {
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+
+        @media (max-width:500px) {
+            .github-corner:hover .octo-arm {
+                animation: none
+            }
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+    </style>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>SEO Peek</title>
     <link rel="stylesheet" href="css/popup.css">
     <script src="js/spin.min.js"></script>
     <script src="js/popup.js"></script>
@@ -72,7 +73,7 @@
         <li>
           <ul class="row clearfix">
             <li class="name">
-              <p>HTTP Status</p>
+              <p>HTTP Status<span class="remark" id="http-version-info"></span></p>
             </li>
             <li id="http-status" class="content">
             </li>
@@ -155,6 +156,12 @@
               </li>
               <li id="alternate-media-link-tag" class="content">
               </li>
+            </ul>
+            <ul class="row clearfix">
+              <li class="name">
+                <p>AMP HTML Tag</p>
+              </li>
+              <li id="amp-html-link-tag" class="content"></li>
             </ul>
             <ul class="row clearfix">
               <li class="name">

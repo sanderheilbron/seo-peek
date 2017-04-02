@@ -1,52 +1,169 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Options for SEO Page Analyzer extension</title>
-    <link rel="stylesheet" href="css/options.css" />
-    <script src="js/options.js"></script>
+    <title>SEO Peek</title>
+    <style>
+        body {
+            padding: 0px;
+        }
+
+        .status {
+            color: green;
+            padding-left: 1em;
+            font-weight: bold;
+        }
+
+        .choice {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .choice__item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .element {
+            flex: 1;
+            text-align: left;
+        }
+
+        .options {
+            margin-left: auto;
+        }
+
+        .options__item {
+            padding-left: 1em;
+        }
+
+        .options__label {
+            padding-left: 0.4em;
+        }
+
+        .documentation__links {
+            display: flex;
+            list-style: none;
+            justify-content: flex-end;
+            margin-top: 3em;
+        }
+
+        .documentation__item {
+            margin: 1em 1em 1em 1em;
+            text-align: right;
+        }
+
+        .documentation__item a {
+            text-decoration: none;
+        }
+
+        fieldset {
+          border: 0;
+        }
+    </style>
   </head>
+
   <body>
-    <h1>Options for SEO Peek extension</h1>
-    <hr>
-    <h3>Show results</h3>
-    <div class="properties">
-      <p>
-        <label>Meta news keywords:</label>
-        <select id="meta_news_keywords_values">
-          <option value="enable">Enable</option>
-          <option value="disable">Disable</option>
-        </select>
-      </p>
-      <small>Detects a Google-specific metatag to help determine how to best classify the content of the page.</small>
-      <p>
-        <label>Pagination directives:</label>
-        <select id="pagination_directives_values">
-          <option value="enable">Enable</option>
-          <option value="disable">Disable</option>
-        </select>
-      </p>
-      <small>Detects the HTML link elements rel="next" and rel="prev" to indicate the relationship between component URLs in a paginated series.</small>
-      <p>
-        <label>Mobile directives:</label>
-        <select id="mobile_directives_values">
-          <option value="enable">Enable</option>
-          <option value="disable">Disable</option>
-        </select>
-      </p>
-      <small>Detects the Vary HTTP header which helps Googlebot discover mobile-optimized content faster, and the rel-alternate-media annotation which helps Google's algorithms to understand the configuration of a mobile site.</small>
-      <p>
-        <label>International directives:</label>
-        <select id="international_directives_values">
-          <option value="enable">Enable</option>
-          <option value="disable">Disable</option>
-        </select>
-      </p>
-      <small>Detects the rel-alternate-hreflang annotation which helps Google to serve the correct language or regional URL in search results.</small>
+    <h2>Display settings</h2>
+
+    <div class="choice">
+        <fieldset>
+            <div class="choice__item">
+                <p class="element">Meta Keywords:</p>
+                <p class="options">
+                    <span class="options__item">
+                        <input type="radio" name="meta-keywords" id="meta-keywords-show" value="meta-keywords-show">
+                        <label class="options__label" for="meta-keywords-show">Show</label>
+                    </span>
+                    <span class="options__item">
+                        <input type="radio" name="meta-keywords" id="meta-keywords-hide" value="meta-keywords-hide">
+                        <label class="options__label" for="meta-keywords-hide">Hide</label>
+                    </span>
+                </p>
+            </div>
+            <small>Detects a keywords metatag, ignored by most search engines.</small>
+        </fieldset>
+
+        <fieldset>
+            <div class="choice__item">
+                <p class="element">Meta News Keywords:</p>
+                <p class="options">
+                    <span class="options__item">
+                        <input type="radio" name="meta-news-keywords" id="meta-news-keywords-show" value="meta-news-keywords-show">
+                        <label class="options__label" for="meta-news-keywords-show">Show</label>
+                    </span>
+                    <span class="options__item">
+                        <input type="radio" name="meta-news-keywords" id="meta-news-keywords-hide" value="meta-news-keywords-hide">
+                        <label class="options__label" for="meta-news-keywords-hide">Hide</label>
+                    </span>
+                </p>
+            </div>
+            <small>Detects a Google-specific metatag to help determine how to best classify the content of the page.</small>
+        </fieldset>
+
+        <fieldset>
+            <div class="choice__item">
+                <p class="element">Pagination Directives:</p>
+                <p class="options">
+                    <span class="options__item">
+                        <input type="radio" name="pagination-directives" id="pagination-directives-show" value="pagination-directives-show">
+                        <label class="options__label" for="pagination-directives-show">Show</label>
+                    </span>
+                    <span class="options__item">
+                        <input type="radio" name="pagination-directives" id="pagination-directives-hide" value="pagination-directives-hide">
+                        <label class="options__label" for="pagination-directives-hide">Hide</label>
+                    </span>
+                </p>
+            </div>
+            <small>Detects the HTML link elements rel="next" and rel="prev" to indicate the relationship between component URLs in a paginated series.</small>
+        </fieldset>
+
+        <fieldset>
+            <div class="choice__item">
+                <p class="element">Mobile Directives:</p>
+                <p class="options">
+                    <span class="options__item">
+                        <input type="radio" name="mobile-directives" id="mobile-directives-show" value="mobile-directives-show">
+                        <label class="options__label" for="mobile-directives-show">Show</label>
+                    </span>
+                    <span class="options__item">
+                        <input type="radio" name="mobile-directives" id="mobile-directives-hide" value="mobile-directives-hide">
+                        <label class="options__label" for="mobile-directives-hide">Hide</label>
+                    </span>
+                </p>
+            </div>
+            <small>Detects the Vary HTTP header which helps Googlebot discover mobile-optimized content faster, the rel-amphtml annotation to let Google and other platforms know about the AMP version of the page, and the rel-alternate-media annotation which helps Google's algorithms to understand the configuration of a mobile site.</small>
+        </fieldset>
+
+        <fieldset>
+            <div class="choice__item">
+                <p class="element">International Directives:</p>
+                <p class="options">
+                    <span class="options__item">
+                        <input type="radio" name="international-directives" id="international-directives-show" value="international-directives-show">
+                        <label class="options__label" for="international-directives-show">Show</label>
+                    </span>
+                    <span class="options__item">
+                        <input type="radio" name="international-directives" id="international-directives-hide" value="international-directives-hide">
+                        <label class="options__label" for="international-directives-hide">Hide</label>
+                    </span>
+                </p>
+            </div>
+            <small>Detects the rel-alternate-hreflang annotation which helps Google to serve the correct language or regional URL in search results.</small>
+        </fieldset>
     </div>
-    <p class="actions">
-      <button class="save">Save</button>
-      <button class="restore">Restore default</button>
-    </p>
-    <span id="status"><span>
+
+    <br>
+    <br>
+
+    <button id="save">Save</button>
+    <button id="restore">Restore defaults</button>
+    <span id="status" class="status"></span>
+
+    <ul class="documentation__links">
+      <li class="documentation__item"><a href="instructions.html" target="_blank">Instructions</a></li>
+      <li class="documentation__item"><a href="upgrade.html" target="_blank">Release notes</a></li>
+    </ul>
+
+    <script src="js/options.js"></script>
   </body>
 </html>

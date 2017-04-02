@@ -1,0 +1,27 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient x1="50%" y1="8.117%" x2="50%" y2="100%" id="b">
+      <stop stop-color="#22C4F0" offset="0%"/>
+      <stop stop-color="#1FB4F4" offset="60.745%"/>
+      <stop stop-color="#1FB4F4" offset="63.777%"/>
+      <stop stop-color="#188DFB" offset="100%"/>
+    </linearGradient>
+    <path d="M62.566 126c34.793 0 63-28.206 63-63s-28.207-63-63-63c-34.794 0-63 28.206-63 63s28.206 63 63 63z" id="a"/>
+    <path id="c" d="M62.566 92.4c16.237 0 29.4-13.163 29.4-29.4s-13.163-29.4-29.4-29.4c-16.238 0-29.4 13.163-29.4 29.4s13.162 29.4 29.4 29.4z"/>
+    <path id="d" d="M53.644 64.788c6.495 0 11.76-5.265 11.76-11.76 0-6.494-5.265-11.76-11.76-11.76s-11.76 5.266-11.76 11.76c0 6.495 5.265 11.76 11.76 11.76z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(1 1)">
+      <use xlink:href="#a"/>
+      <use fill="url(#b)" xlink:href="#a"/>
+    </g>
+    <g transform="translate(1 1)">
+      <use fill="#FFF" xlink:href="#c"/>
+      <use fill="#4A4A4A" xlink:href="#c"/>
+    </g>
+    <g transform="translate(1 1)">
+      <use fill="#FFF" xlink:href="#d"/>
+      <use xlink:href="#d"/>
+    </g>
+  </g>
+</svg>
