@@ -54,7 +54,7 @@ Download and install the Chrome extension from the [Chrome Web Store][1].
 Have a bug? Please create an [issue][2] here on GitHub!
 
 ## Contributing
-Want to contribute? Great! Just fork the project,work on new features or bug fixes using feature branches and open [pull-requests][3] with concise but complete descriptions of your changes.
+Want to contribute? Great! Just fork the project, work on new features or bug fixes using feature branches and open [pull-requests][3] with concise but complete descriptions of your changes.
 
 If you are unsure about a proposal, you can just open an issue to discuss it before writing actual code.
 
