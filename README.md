@@ -1,10 +1,25 @@
 # SEO Peek
-A browser extension for Chrome &amp; Safari
+A browser extension for Chrome
 
-Get a quick peek into on-page SEO factors of the page you visit in the browser. No need to inspect the HTML of the page. Just one click to see the availability and values of the most relevant content elements and robot directives.
+Just one click to get a quick peek into on-page SEO factors of the web page you visit in the browser.
 
-## Usage
-The extension gives you insight into several relevant content elements and robot directives.
+## Checking the DOM
+SEO Peek is a Chrome extension that checks the Document Object Model (DOM) of a page. There is no need to view the HTML source (View Source for SEO is dead) or inspect the DOM in the elements tab of Chrome DevTools.
+
+SEO Peek checks the most relevant content elements and robot directives inside the DOM of both traditional server-side generated pages and client-side rendered pages like Single Page Applications (SPA).
+
+## Server response
+Besides a check of HTML elements the extension also sends a request to the server to check the HTTP Status and several HTTP Response Headers like the HTTP Canonical header, X-Robots-Tag header and Vary header.
+
+The HTTP Status contains an additional remark when the server supports HTTP/2.
+
+## Link elements and headers
+For all link elements and link headers the extension checks if the URL of a link element or link header refers to the URL of the current page (self-referential).
+
+The HTTP status for the canonical URL is also being checked. When the response contains a redirect the extension detects the redirect and shows the response URL and its HTTP status.
+
+## What is being checked?
+The extension gives you insights into several relevant content elements and robot directives.
 
 ### Content elements
 * Page title
@@ -13,68 +28,41 @@ The extension gives you insight into several relevant content elements and robot
 * Meta news keywords
 * H1 headings
 
-
 ### Robot directives
 * HTTP status
 * Meta robots (Meta robots tag, X-Robots-Tag header)
 * Canonicalization annotations (Canonical link tag, Canonical link header)
 * Pagination annotations (Prev link tag, Next link tag)
-* Mobile annotations (Rel-alternate-media annotation, Vary HTTP header)
+* Mobile annotations (Rel-alternate-media annotation, Vary HTTP header, AMP HTML annotation)
 * International annotations (Rel-alternate-hreflang annotation)
 
-### Link elements
-For all link elements the extension checks if the URL of a link element refers to the URL of the page (self-referential).
-
-### Settings
-Enable meta news keywords, pagination, mobile and international annotations inside the settings of the extension.
-
+## Settings
+You can control the display settings of some of the elements or directives. Open the extension options in the Chrome Extensions settings.
 
 ## Installation
-Download and install the Chrome extension from the [Chrome Web Store][1]. Download the [Safari extension][2], a prompt box will ask if you want to install the extension.
+Download and install the Chrome extension from the [Chrome Web Store][1].
+
+## Usage
+### Windows & MacOS
+* Open a tab and visit a web page
+* Click the extension icon<sup>*</sup> in the browser toolbar to inspect the page
+* Chrome will open a popup screen which shows all page results
+
+<sup>*</sup> instead of clicking the extension icon, it's possible to assign a shortcut
 
 ## Issues
-Have a bug? Please create an [issue][3] here on GitHub!
+Have a bug? Please create an [issue][2] here on GitHub!
 
 ## Contributing
-Want to contribute? Great! Just fork the project, make your changes and open a [pull request][4].
+Want to contribute? Great! Just fork the project,work on new features or bug fixes using feature branches and open [pull-requests][3] with concise but complete descriptions of your changes.
+
+If you are unsure about a proposal, you can just open an issue to discuss it before writing actual code.
 
 ## Changelog
-See [changelog][6] for details.
-
-## License
-Licensed under the BSD license.
-
-Copyright (c) 2015 [Sander Heilbron][5].
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* Neither the name of SEO Peek nor the names of its
-  contributors may be used to endorse or promote products derived from
-  this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+See [changelog][5] for details.
 
 [1]: https://chrome.google.com/webstore/detail/seo-peek/lkkpfhgjmocgneajknedjhodkjkkclod
-[2]: http://extensions.sanderheilbron.nl/safari/seo-peek.safariextz
-[3]: https://github.com/sanderheilbron/seo-peek/issues
-[4]: https://github.com/sanderheilbron/seo-peek/pulls
-[5]: http://www.sanderheilbron.nl
-[6]: https://github.com/sanderheilbron/seo-peek/blob/master/CHANGELOG.md
+[2]: https://github.com/sanderheilbron/seo-peek/issues
+[3]: https://github.com/sanderheilbron/seo-peek/pulls
+[4]: https://www.sanderheilbron.nl
+[5]: https://github.com/sanderheilbron/seo-peek/blob/master/CHANGELOG.md
