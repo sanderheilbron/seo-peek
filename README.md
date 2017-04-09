@@ -45,10 +45,10 @@ Download and install the Chrome extension from the [Chrome Web Store][1].
 ## Usage
 ### Windows & MacOS
 * Open a tab and visit a web page
-* Click the extension icon<sup>*</sup> in the browser toolbar to inspect the page
+* Click the extension icon<sup>∗</sup> in the browser toolbar to inspect the page
 * Chrome will open a popup screen which shows all page results
 
-<sup>*</sup> instead of clicking the extension icon, it's possible to assign a shortcut
+<sup>∗</sup> instead of clicking the extension icon, it's possible to assign a shortcut
 
 ## Issues
 Have a bug? Please create an [issue][2] here on GitHub!
