@@ -129,7 +129,7 @@ header {
     margin: 0 auto;
     padding: 0;
     font-weight: 400;
-    color: rgb(137,150,159);
+    color: rgb(137, 150, 159);
     max-width: 26em;
 }
 
@@ -154,7 +154,7 @@ header {
 }
 
 .instructions__subheading {
-  margin-top: 1.4em;
+    margin-top: 1.4em;
 }
 
 .instructions__list, .notes__list {

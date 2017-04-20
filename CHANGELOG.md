@@ -6,11 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 -----------
 
 ## 2.0.0 - 2017-03-29
-### Added 
+### Added
 * DOM analysis of client-side rendered content (SPA, AJAX).
 * Detection of rel AMP HTML annotation.
 * HTTP Status contains an additional remark when the server supports HTTP/2.
-* The HTTP status for the canonical URL is being checked. 
+* The HTTP status for the canonical URL is being checked.
   * If the response has an HTTP status code of 301, 302, 303, 307, or 308 the extension detects these redirects and shows the response URL and its HTTP status.
 * All checks are visible inside the popup by default, you can hide some of them including the meta keywords.
 * Improved styling and a new icon.

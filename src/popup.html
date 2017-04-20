@@ -1,193 +1,195 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>SEO Peek</title>
     <link rel="stylesheet" href="css/popup.css">
     <script src="js/spin.min.js"></script>
     <script src="js/popup.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="spinner" style="position:fixed;top:50%;left:50%"></div>
-    <div id="reload-notification" style="display:none;">Please reload the tab to enable the SEO Peek extension!</div>
 
     <div id="info" style="display:none;">
-      <h2><span>Content</span></h2>
-      <ul id="content" class="rounded-box">
-        <li>
-          <ul class="row clearfix">
-            <li class="name">
-              <p>Page Title<span class="remark" id="page-title-characters"></span><span class="occurrences" id="page-title-occurrences"></span></p>
-            </li>
-            <li id="page-title" class="content">
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <div id="meta-content-tags">
-        <h3>Meta tags</h3>
-          <ul id="meta-tags" class="rounded-box">
+        <h2><span>Content</span></h2>
+        <ul id="content" class="rounded-box">
             <li>
-              <ul class="row clearfix">
-                <li class="name">
-                  <p>Meta Description<span class="remark" id="meta-description-characters"></span><span class="occurrences" id="meta-description-occurrences"></span></p>
-                </li>
-                <li id="meta-description" class="content">
-                </li>
-              </ul>
-              <ul class="row clearfix">
-                <li class="name">
-                  <p>Meta Keywords<span class="occurrences" id="meta-keywords-occurrences"></span></p>
-                </li>
-                <li id="meta-keywords" class="content">
-                </li>
-              </ul>
-              <ul class="row clearfix">
-                <li class="name">
-                  <p>Meta News Keywords<span class="occurrences" id="meta-news-keywords-occurrences"></span></p>
-                </li>
-                <li id="meta-news-keywords" class="content">
-                </li>
-              </ul>
+                <ul class="row clearfix">
+                    <li class="name">
+                        <p>Page Title<span class="remark" id="page-title-characters"></span><span class="occurrences" id="page-title-occurrences"></span></p>
+                    </li>
+                    <li id="page-title" class="content">
+                    </li>
+                </ul>
             </li>
-          </ul>
-      </div>
-
-      <div id="heading-tags">
-      <h3>Headings</h3>
-        <ul id="h1-headings" class="rounded-box">
-          <li>
-            <ul class="row clearfix">
-              <li class="name">
-                <p>H1<span class="occurrences" id="h1-heading-occurrences"></span></p>
-              </li>
-              <li id="h1-heading" class="content">
-              </li>
-            </ul>
-          </li>
         </ul>
-      </div>
 
-      <h2>Robot Directives</h2>
-      <ul id="directives" class="rounded-box">
-        <li>
-          <ul class="row clearfix">
-            <li class="name">
-              <p>HTTP Status<span class="remark" id="http-version-info"></span></p>
-            </li>
-            <li id="http-status" class="content">
-            </li>
-          </ul>
-        </li>
-      </ul>
+        <div id="meta-content-tags">
+            <h3>Meta tags</h3>
+            <ul id="meta-tags" class="rounded-box">
+                <li>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Meta Description<span class="remark" id="meta-description-characters"></span><span class="occurrences" id="meta-description-occurrences"></span></p>
+                        </li>
+                        <li id="meta-description" class="content">
+                        </li>
+                    </ul>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Meta Keywords<span class="occurrences" id="meta-keywords-occurrences"></span></p>
+                        </li>
+                        <li id="meta-keywords" class="content">
+                        </li>
+                    </ul>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Meta News Keywords<span class="occurrences" id="meta-news-keywords-occurrences"></span></p>
+                        </li>
+                        <li id="meta-news-keywords" class="content">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
-      <div id="meta-robot-tags">
-        <h3>Meta tags</h3>
-          <ul id="meta-robots-directives" class="rounded-box">
+        <div id="heading-tags">
+            <h3>Headings</h3>
+            <ul id="h1-headings" class="rounded-box">
+                <li>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>H1<span class="occurrences" id="h1-heading-occurrences"></span></p>
+                        </li>
+                        <li id="h1-heading" class="content">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2>Robot Directives</h2>
+        <ul id="directives" class="rounded-box">
             <li>
-              <ul class="row clearfix">
-                <li class="name">
-                  <p>Meta Robots<span class="occurrences" id="meta-robots-occurrences"></span></p>
-                </li>
-                <li id="meta-robots" class="content">
-                </li>
-              </ul>
-              <ul class="row clearfix">
-                <li class="name">
-                  <p>X-Robots-Tag Header</p>
-                </li>
-                <li id="x-robots-tag" class="content">
-                </li>
-              </ul>
+                <ul class="row clearfix">
+                    <li class="name">
+                        <p>HTTP Status<span class="remark" id="http-version-info"></span></p>
+                    </li>
+                    <li id="http-status" class="content">
+                    </li>
+                </ul>
             </li>
-          </ul>
-      </div>
-
-      <div id="canonicalization">
-        <h3>Canonicalization</h3>
-          <ul id="canonicalization-directives" class="rounded-box">
-          <li>
-            <ul class="row clearfix">
-              <li class="name">
-                <p>Canonical Link Tag<span class="remark" id="canonical-link-tag-info"></span><span class="occurrences" id="canonical-link-tag-occurrences"></span></p>
-              </li>
-              <li id="canonical-link-tag" class="content">
-              </li>
-            </ul>
-            <ul class="row clearfix">
-              <li class="name">
-                <p>Canonical Link Header<span class="remark" id="canonical-link-header-info"></span></p>
-              </li>
-              <li id="canonical-link-header" class="content"></li>
-            </ul>
-          </li>
         </ul>
-      </div>
 
-      <div id="pagination">
-        <h3>Pagination</h3>
-        <ul id="pagination-directives" class="rounded-box">
-          <li>
-            <ul class="row clearfix">
-            <li class="name">
-              <p>Prev Link Tag<span class="remark" id="prev-link-tag-info"></span></p>
-            </li>
-            <li id="prev-link-tag" class="content">
-            </li>
-          </ul>
-           <ul class="row clearfix">
-            <li class="name">
-              <p>Next Link Tag<span class="remark" id="next-link-tag-info"></span></p>
-            </li>
-            <li id="next-link-tag" class="content">
-            </li>
-          </ul>
-          </li>
-        </ul>
-      </div>
+        <div id="meta-robot-tags">
+            <h3>Meta tags</h3>
+            <ul id="meta-robots-directives" class="rounded-box">
+                <li>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Meta Robots<span class="occurrences" id="meta-robots-occurrences"></span></p>
+                        </li>
+                        <li id="meta-robots" class="content">
+                        </li>
+                    </ul>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>X-Robots-Tag Header</p>
+                        </li>
+                        <li id="x-robots-tag" class="content">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
-      <div id="mobile">
-        <h3>Mobile</h3>
-        <ul id="mobile-directives" class="rounded-box">
-          <li>
-            <ul class="row clearfix">
-              <li class="name">
-                <p>Rel-alternate-media<span class="remark" id="media-link-tag-info"></span><span class="occurrences" id="media-link-tag-occurrences"></span></p>
-              </li>
-              <li id="alternate-media-link-tag" class="content">
-              </li>
+        <div id="canonicalization">
+            <h3>Canonicalization</h3>
+            <ul id="canonicalization-directives" class="rounded-box">
+                <li>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Canonical Link Tag<span class="remark" id="canonical-link-tag-info"></span><span class="occurrences" id="canonical-link-tag-occurrences"></span></p>
+                        </li>
+                        <li id="canonical-link-tag" class="content">
+                        </li>
+                    </ul>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Canonical Link Header<span class="remark" id="canonical-link-header-info"></span></p>
+                        </li>
+                        <li id="canonical-link-header" class="content"></li>
+                    </ul>
+                </li>
             </ul>
-            <ul class="row clearfix">
-              <li class="name">
-                <p>AMP HTML Tag</p>
-              </li>
-              <li id="amp-html-link-tag" class="content"></li>
-            </ul>
-            <ul class="row clearfix">
-              <li class="name">
-                <p>Vary Header</p>
-              </li>
-              <li id="vary-header" class="content"></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+        </div>
 
-      <div id="international">
-        <h3>International</h3>
-        <ul id="international-directives" class="rounded-box">
-          <li>
-            <ul class="row clearfix">
-            <li class="name">
-              <p>Rel-alternate-hreflang<span class="remark" id="alternate-hreflang-link-tag-info"></span></p>
-            </li>
-            <li id="alternate-hreflang-link-tag" class="content">
-            </li>
-          </ul>
-          </li>
-        </ul>
-      </div>
-      <h1><span id="seo-peek"></span> &mdash; Developed by <span id="sh"></span></h1>
+        <div id="pagination">
+            <h3>Pagination</h3>
+            <ul id="pagination-directives" class="rounded-box">
+                <li>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Prev Link Tag<span class="remark" id="prev-link-tag-info"></span></p>
+                        </li>
+                        <li id="prev-link-tag" class="content">
+                        </li>
+                    </ul>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Next Link Tag<span class="remark" id="next-link-tag-info"></span></p>
+                        </li>
+                        <li id="next-link-tag" class="content">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="mobile">
+            <h3>Mobile</h3>
+            <ul id="mobile-directives" class="rounded-box">
+                <li>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Rel-alternate-media<span class="remark" id="media-link-tag-info"></span><span class="occurrences" id="media-link-tag-occurrences"></span></p>
+                        </li>
+                        <li id="alternate-media-link-tag" class="content">
+                        </li>
+                    </ul>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>AMP HTML Tag</p>
+                        </li>
+                        <li id="amp-html-link-tag" class="content"></li>
+                    </ul>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Vary Header</p>
+                        </li>
+                        <li id="vary-header" class="content"></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="international">
+            <h3>International</h3>
+            <ul id="international-directives" class="rounded-box">
+                <li>
+                    <ul class="row clearfix">
+                        <li class="name">
+                            <p>Rel-alternate-hreflang<span class="remark" id="alternate-hreflang-link-tag-info"></span></p>
+                        </li>
+                        <li id="alternate-hreflang-link-tag" class="content">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <h1><span id="seo-peek"></span> &mdash; Developed by <span id="sh"></span></h1>
     </div>
-  </body>
+</body>
+
 </html>
