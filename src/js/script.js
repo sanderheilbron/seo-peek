@@ -160,9 +160,6 @@ var metaDescription = getMetaElement('description'),
 var metaKeywords = getMetaElement('keywords'),
     metaKeywordsOccurrences = getMetaElementOccurrences('keywords');
 
-var metaNewsKeywords = getMetaElement('news_keywords'),
-    metaNewsKeywordsOccurrences = getMetaElementOccurrences('news_keywords');
-
 var h1Heading = [],
     getH1Heading = (typeof getElement('h1') !== "undefined") ? getElement('h1').replace(/\s+/g, ' ') : notAvailable;
 h1Heading.push(getH1Heading);
@@ -193,8 +190,6 @@ chrome.runtime.sendMessage({
     metaDescriptionOccurrences: metaDescriptionOccurrences,
     metaKeywords: metaKeywords,
     metaKeywordsOccurrences: metaKeywordsOccurrences,
-    metaNewsKeywords: metaNewsKeywords,
-    metaNewsKeywordsOccurrences: metaNewsKeywordsOccurrences,
     h1Heading: h1Heading,
     h1HeadingOccurrences: h1HeadingOccurrences,
     metaRobots: metaRobots,

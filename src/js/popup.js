@@ -10,8 +10,6 @@ var pageTitle = [],
     metaDescriptionOccurrences = [],
     metaKeywords = [],
     metaKeywordsOccurrences = [],
-    metaNewsKeywords = [],
-    metaNewsKeywordsOccurrences = [],
     h1Heading = [],
     h1HeadingOccurrences = [],
     metaRobots = [],
@@ -136,25 +134,6 @@ chrome.runtime.onMessage.addListener(
             if (metaKeywordsOccurrences > 1) {
                 var spanMetaKeywordsOccurrences = document.getElementById("meta-keywords-occurrences");
                 spanMetaKeywordsOccurrences.innerText = metaKeywordsOccurrences + ' elements';
-            }
-
-            // Meta News Keywords
-            var metaNewsKeywordsElem = document.getElementById("meta-news-keywords"),
-                newsKeywordsElem = document.createElement("p");
-            metaNewsKeywords = request.metaNewsKeywords;
-
-            if (metaNewsKeywords == notAvailable || metaNewsKeywords == contentMissing) {
-                newsKeywordsElem.innerHTML = '<span class="missing-value">' + metaNewsKeywords + '</span>';
-            } else {
-                newsKeywordsElem.innerText = metaNewsKeywords;
-            }
-            metaNewsKeywordsElem.appendChild(newsKeywordsElem);
-
-            // Meta News Keywords Occurrences
-            var metaNewsKeywordsOccurrences = request.metaNewsKeywordsOccurrences;
-            if (metaNewsKeywordsOccurrences > 1) {
-                var spanMetaNewsKeywordsOccurrences = document.getElementById("meta-news-keywords-occurrences");
-                spanMetaNewsKeywordsOccurrences.innerText = metaNewsKeywordsOccurrences + ' elements';
             }
 
             // H1 Heading
@@ -311,21 +290,12 @@ chrome.runtime.onMessage.addListener(
             }
 
             //Loads options from chrome.storage.sync.
-            chrome.storage.sync.get(["metaKeywordsSetting", "metaNewsKeywordsSetting", "paginationDirectivesSetting", "mobileDirectivesSetting", "internationalDirectivesSetting"], function(settings) {
+            chrome.storage.sync.get(["metaKeywordsSetting", "paginationDirectivesSetting", "mobileDirectivesSetting", "internationalDirectivesSetting"], function(settings) {
                 if (!chrome.runtime.error) {
                     var metaKeywordsSetting = settings.metaKeywordsSetting;
-                    var metaNewsKeywordsSetting = settings.metaNewsKeywordsSetting;
                     var paginationDirectivesSetting = settings.paginationDirectivesSetting;
                     var mobileDirectivesSetting = settings.mobileDirectivesSetting;
                     var internationalDirectivesSetting = settings.internationalDirectivesSetting;
-                }
-
-                if (metaNewsKeywordsSetting === 'meta-news-keywords-hide') {
-                    metaNewsKeywordsElem.parentNode.style.display = 'none';
-                    metaKeywordsElem.parentNode.style.borderBottomWidth = '0px';
-                } else {
-                    metaNewsKeywordsElem.parentNode.style.display = 'block';
-                    metaKeywordsElem.parentNode.style.borderBottomWidth = '1px';
                 }
 
                 if (metaKeywordsSetting === 'meta-keywords-hide') {
